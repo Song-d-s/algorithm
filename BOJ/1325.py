@@ -5,11 +5,11 @@ from collections import deque #queue 자료형
 N, M = map(int, stdin.readline().rstrip().split())
 
 trustlist = [[] for _ in range(N+1)]
-for _ in range(M): #M줄 확인, trustlist 작성.
+for _ in range(M):
     a , b = map(int, stdin.readline().rstrip().split())
     trustlist[b].append(a)
 
-def bfs(com_number):
+def bfs(com_number): #bfs
     queue = deque([com_number])
     counts = 1
     checked = [False for _ in range(N+1)]

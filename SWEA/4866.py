@@ -25,7 +25,3 @@ for t in range(T):
     if len(lst): # 스택에 괄호가 남아 있으면 거짓(0).
         check = 0
     print(f'#{t+1} {check}')
-
-
-
-

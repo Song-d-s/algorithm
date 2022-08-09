@@ -1,7 +1,7 @@
 #4869. 종이 붙이기
 #Programming Intermediate > 파이썬 SW문제해결 기본 - Stack1 
 import sys
-sys.stdin = open("input.txt", "r")
+sys.stdin = open("input.txt")
 
 from math import factorial
 

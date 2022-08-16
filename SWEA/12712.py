@@ -1,10 +1,33 @@
 # 12712. 파리퇴치3
 # User Problem
 import sys
-
 sys.stdin = open("08.txt")
-#
-# 1. 교수님 풀이 - 델타
+# 1. 내 풀이
+def crossline(y, x, k):
+    res = list()
+    res.append([y, x])
+    for m in range(1, M):
+        res.extend([[y - m, x - m * k], [y - m * k, x + m], [y + m, x + m * k], [y + m * k, x - m]])
+    return res
+
+T = int(input())
+for t in range(T):
+    N, M = map(int, input().split())
+    maps = list()
+    maps += (list(map(int, input().split())) for _ in range(N))
+    maxV = 0
+    for y in range(N):
+        for x in range(N):
+            for k in range(2):
+                cnt = 0
+                for g in crossline(y, x, k):
+                    if 0 <= g[0] < N and 0 <= g[1] < N:
+                        cnt += maps[g[0]][g[1]]
+                if maxV < cnt:
+                    maxV = cnt
+    print(f'#{t + 1} {maxV}')
+
+# 2. 교수님 풀이 - 델타
 TC = int(input())
 for tc in range(1, TC + 1):
     N, M = map(int, input().split())
@@ -40,29 +63,3 @@ for tc in range(1, TC + 1):
                 maxV = sumV
 
     print('#{} {}'.format(tc, maxV))
-#
-# 2. 내 풀이
-def crossline(y, x, k):
-    res = list()
-    res.append([y, x])
-    for m in range(1, M):
-        res.extend([[y - m, x - m * k], [y - m * k, x + m], [y + m, x + m * k], [y + m * k, x - m]])
-    return res
-
-
-T = int(input())
-for t in range(T):
-    N, M = map(int, input().split())
-    maps = list()
-    maps += (list(map(int, input().split())) for _ in range(N))
-    maxV = 0
-    for y in range(N):
-        for x in range(N):
-            for k in range(2):
-                cnt = 0
-                for g in crossline(y, x, k):
-                    if 0 <= g[0] < N and 0 <= g[1] < N:
-                        cnt += maps[g[0]][g[1]]
-                if maxV < cnt:
-                    maxV = cnt
-    print(f'#{t + 1} {maxV}')

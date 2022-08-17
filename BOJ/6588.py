@@ -4,7 +4,7 @@ from sys import stdin
 max_n = 1000000
 oddprime = [True for _ in range(max_n+1)]
 oddprime[0] = oddprime[1] = False
-# 아리스토테네스의 체
+# 아리스토테네스의 체 - 소수 판별
 for x in range(2, int(max_n**0.5)+1):
     if oddprime[x]:
         for y in range(x*2, max_n, x):

@@ -10,7 +10,7 @@ for _ in range(M):
     trustlist[b].append(a)
 
 def bfs(com_number): #bfs
-    queue = deque([com_number])
+    queue = deque([com_number]) #queue
     counts = 1
     checked = [False for _ in range(N+1)]
     checked[com_number] = True

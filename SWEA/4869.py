@@ -5,7 +5,7 @@ sys.stdin = open("input.txt")
 
 from math import factorial
 
-def nCr(n, r): # n개중 같은 r개를 선택하는 경우의 수
+def nCr(n, r): # n개중 같은 r개를 선택하는 경우의 수 nCr
     return factorial(n)//factorial(r)//factorial(n-r)
 
 T=int(input()) # 여러(T)개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
